@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.3/cyborg/bootstrap.min.css"
+    integrity="sha512-QzwqVdCfEIUhmovYlJ/ET11Uh4MLuvEpwVpTVTRhChwzgfkrQH9BMcDvgwFpi5fMUGVLJAPsEXJVHuODuhmctg=="
+    crossorigin="anonymous" />
+  <title>News App</title>
+</head>
+
+<div class="navbar fixed-top navbar-dark bg-dark">
+  <div class="container">
+    <h4 style="color:rgb(255, 255, 255)">News App <h4 style="color: rgb(154, 255, 0);">DJANGO FRAMEWORK</h4>
+    </h4>
+    <img src="{% static 'images/dj.png' %}" class="image" style="width:90px; ">
+  </div>
+</div>
+
+<!-- Card for header -->
+<div class="jumbotron" style="text-align: center; margin-top:40px">
+  <h2>Latest News using<a href="https://newsapi.org" style="text-decoration: none" ;> news API</a></h2>
+  <img src="{% static 'images/news.png' %}" class="image" style="width:150px; margin-bottom:-50px; ">
+</div>
+
+<!-- Main -->
+<div class="container">
+  {% for hl, des, img in mylist %}
+
+  <div class="card border-primary mb-3">
+    <img src="{{ img }}" alt="image">
+  </div>
+  <div class="card border-primary mb-3">
+    <h4><span class="badge badge-primary">Headline:</span></h4>
+    <h5>{{ hl }}{{ value|linebreaks }}</h5>
+    <h4> <span class="badge badge-success">Description:</span></h4>
+    <h5>{{ des }}{{ value|linebreaks }}</h5>
+  </div>
+  {% endfor %}
+
+  </body>
+
+</html>
